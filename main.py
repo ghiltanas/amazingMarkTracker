@@ -63,10 +63,9 @@ async def check_auto():
 async def id(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Il tuo chat ID è: {update.effective_chat.id}")
 
-app.add_handler(CommandHandler("id", id))
-
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("check", check))
+    app.add_handler(CommandHandler("id", id))
     app.run_polling()
