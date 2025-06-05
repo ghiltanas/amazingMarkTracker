@@ -60,6 +60,11 @@ async def check_auto():
         bot = Bot(token=TOKEN)
         await bot.send_photo(chat_id=CHAT_ID, photo=img, caption=messaggio, parse_mode="HTML")
 
+async def id(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(f"Il tuo chat ID è: {update.effective_chat.id}")
+
+app.add_handler(CommandHandler("id", id))
+
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
